@@ -30,12 +30,16 @@ class DBStorage:
 
     def all(self, cls=None):
         """x"""
+        classes = [cls]
         if cls is None:
-            cls = [State, City]
+            classes = [State, City, User, Place, Review, Amenity]
+        elif type(cls) is str:
+            classes = [eval(cls)]
         out = {}
-        for obj in self.__session.query(eval(cls)).all():
-            my_id = type(obj).__name__ + "." + obj.id
-            out.update({my_id: obj})
+        for c in classes:
+            for obj in self.__session.query(c).all():
+                my_id = type(obj).__name__ + "." + obj.id
+                out.update({my_id: obj})
         return out
 
     def new(self, obj):
