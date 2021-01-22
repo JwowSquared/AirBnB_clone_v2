@@ -10,6 +10,7 @@ def a():
     """x"""
     return "Hello HBNB!"
 
+
 @app.route("/hbnb", strict_slashes=False)
 def b():
     """x"""
