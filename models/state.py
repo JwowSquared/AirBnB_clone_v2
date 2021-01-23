@@ -19,7 +19,8 @@ class State(BaseModel, Base):
         def cities(self):
             """getter for FileStorage use"""
             # potentially need to encase this in an if statement to protect
-            from models.base_model import storage
+            from models import storage
+            from models.city import City
             out = []
             for obj in storage.all(City).values():
                 if obj.state_id == self.id:
