@@ -17,7 +17,7 @@ def a():
 
 
 @app.teardown_appcontext
-def b():
+def b(err):
     """x"""
     storage.close()
 
