@@ -4,10 +4,10 @@
         <TITLE>HBNB</TITLE>
     </HEAD>
     <BODY>
-        {%- if not states %}
+        {%- if code == 1 %}
 
         <H1>Not found!</H1>
-        {% elif not cities %}
+        {% elif code == 2 %}
         <H1>States</H1>
         <UL>
         {% for state in states|sort(attribute="name") %}

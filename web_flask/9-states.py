@@ -13,12 +13,12 @@ def a(id):
     s = storage.all("State").values()
     if id is None:
         s = storage.all("State").values()
-        return render_template("9-states.html", states=s)
+        return render_template("9-states.html", states=s, code=2)
     for state in s:
         if state.id == id:
             c = storage.all("City").values()
             return render_template("9-states.html", states=state, cities=c)
-    return render_template("9-states.html")
+    return render_template("9-states.html", code=1)
 
 
 @app.teardown_appcontext
